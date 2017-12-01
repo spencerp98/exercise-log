@@ -69,7 +69,7 @@ app.post('/', function(req, res){
 //deletes a row from the table
 app.delete('/:id', function(req, res){
     var mysql = req.app.get('mysql');
-    var sql = "DELETE FROM exercise WHERE id = ?";
+    var sql = "DELETE FROM exercises WHERE id = ?";
     var inserts = [req.params.id];
     sql = mysql.pool.query(sql, inserts, function(error, results, fields){
         if(error){
@@ -98,7 +98,7 @@ app.get('/:id', function(req, res){
 
 app.put('/:id', function(req, res){
     var mysql = req.app.get('mysql');
-    var sql = "UPDATE exercise SET name=?, reps=?, weight=?, date=?, unit=? WHERE id=?";
+    var sql = "UPDATE exercises SET name=?, reps=?, weight=?, date=?, unit=? WHERE id=?";
     var inserts = [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.unit, req.params.id];
 	sql = mysql.pool.query(sql,inserts,function(error, results, fields){
         if(error){
