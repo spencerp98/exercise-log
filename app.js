@@ -13,7 +13,7 @@ app.set('port', process.argv[2]);
 app.set('mysql', mysql);
 
 function getExercises(res, mysql, context, complete){
-    mysql.pool.query("SELECT id, name, reps, weight, DATE_FORMAT(date, '%d-%m-%T') AS date, unit FROM exercises", function(error, results, fields){
+    mysql.pool.query("SELECT id, name, reps, weight, DATE_FORMAT(date, '%m-%d-%Y') AS date, unit FROM exercises", function(error, results, fields){
         if(error){
             res.write(JSON.stringify(error));
             res.end();
