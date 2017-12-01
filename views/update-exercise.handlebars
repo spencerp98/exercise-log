@@ -1,0 +1,22 @@
+<h1>Update {{exercise.name}}:</h1>
+<form id="update-exercise" action="/" method="post">
+    <label for="name">Name:</label>
+    <input type="text" name="name" value="{{exercise.name}}">
+    <br>
+    <label for="reps">Number of Reps:</label>
+    <input type="number" name="reps" value="{{exercise.reps}}">
+    <br>
+    <label for="weight">Weight:</label>
+    <input type="number" name="weight" value="{{exercise.weight}}">
+    <br>
+    <label for="date">Date:</label>
+    <input type="date" name="date" value="{{exercise.date}}">
+    <br>
+    <label for="unit">Unit:</label>
+    <select name="unit" id="unit-selector">
+		<option value="lbs">Lbs.</option>
+		<option value="kgs">Kg</option>
+	</select>
+    <br>
+</form>
+<button onclick="updateExercise({{exercise.id}})">Update</button>

@@ -1,0 +1,50 @@
+<h2>Exercises</h2>
+<table border="solid">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Number of Reps</th>
+			<th>Weight</th>
+			<th>Date</th>
+			<th>Unit</th>
+		</tr>
+	</thead>
+	<tbody>
+	    {{#each exercise}}
+		<tr>
+			<td>{{name}}</td>
+			<td>{{reps}}</td>
+			<td>{{weight}}</td>
+			<td>{{date}}</td>
+			<td>{{unit}}</td>
+			<td><button onclick="deleteExersice({{id}})">Delete</button></td>
+			<td><a href="/exercise/{{id}}">Update</a></td>
+		</tr>	
+		{{/each}}
+	</tbody>
+</table>
+
+<form id="addExercise" action="/" method="post">
+	<fieldset>
+		<legend>Add An Exercise</legend>
+		<label for="name">Name:</label>
+		<input type="text" name="name" required>
+		<br>
+		<label for="reps">Number of Reps:</label>
+		<input type="number" name="reps" required>
+		<br>
+		<label for="weight">Weight:</label>
+		<input type="number" name="weight" required>
+		<br>
+		<label for="date">Date:</label>
+		<input type="date" name="date" required>
+		<br>
+		<label for="unit">Unit:</label>
+		<select name="unit" required>
+			<option value="lbs">Lbs.</option>
+			<option value="kgs">Kg</option>
+		</select>
+		<br>
+		<input type="submit" value="Submit" name="exerciseSubmit">
+	</fieldset>
+</form>
